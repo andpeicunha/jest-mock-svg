@@ -7,6 +7,7 @@ import styles from "./Lista.module.css";
 import addBt from "./images/add.png";
 import carrinho from "./images/carrinho.svg";
 
+// Estado inicial do carrinho de compras
 function cartReducer(state: any, action: any) {
   switch (action.type) {
     case "ADD_TO_CART":
@@ -32,6 +33,7 @@ function cartReducer(state: any, action: any) {
   }
 }
 
+// Retorna os itens do carrinho que estão gravados no localStorage
 function getStoredCartItems() {
   if (typeof window !== "undefined") {
     const storedCartItems = localStorage.getItem("cartItems");
@@ -49,16 +51,20 @@ function getStoredCartItems() {
 
 export default function Lista() {
   const [dados, setDados] = useState([]);
+  // Chama a função getStoredCartItems que carrega os dados do localStorage
   const [state, dispatch] = useReducer(cartReducer, { cartItems: getStoredCartItems() });
 
+  // Retorna a quantidade de itens do carrinho
   const CartLength = state.cartItems.length;
 
+  // Verifica se o carrinho está vazio ou não e grava os dados no localStorage dentro da variavel cartItems
   useEffect(() => {
     if (state.cartItens !== null) {
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     }
   }, [state]);
 
+  // API axios para pegar os dados do carrinho, neste exemplo os dados estão na pasta API/list.ts
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -72,6 +78,7 @@ export default function Lista() {
     fetchData();
   }, []);
 
+  // Chama a case dentro da função Reducer pra gravar os dados no state, fazendo as validações necessárias
   function handleAddToCart(itemId: any, itemName: any, itemValue: any) {
     dispatch({ type: "ADD_TO_CART", payload: { id: itemId, name: itemName } });
   }
