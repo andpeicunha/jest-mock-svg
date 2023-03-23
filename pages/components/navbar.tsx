@@ -1,38 +1,26 @@
 import React from "react";
 import Link from "next/link";
-
-interface ButtonProps {
-  href: string;
-  value: string;
-  onClick?: () => void;
-  ref?: string;
-}
-
-function MyButton(props: ButtonProps) {
-  return (
-    <a href={props.href} onClick={props.onClick} ref={props.ref}>
-      {props.value}
-    </a>
-  );
-}
+import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   return (
-    <div>
-      <ul>
-        <li>
-          <MyButton href="/" value="Home" />
-        </li>
-        <li>
-          <MyButton href="/components/contador" value="Contador" />
-        </li>
-        <li>
-          <MyButton href="/components/cronometro" value="Cronometro" />
-        </li>
-        <li>
-          <MyButton href="/components/lista" value="Lista" />
-        </li>
-      </ul>
-    </div>
+    <>
+      <div>
+        <ul className={styles.container}>
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/components/Contador">Contador</Link>
+          </li>
+          <li>
+            <Link href="/components/Cronometro">Cronometro</Link>
+          </li>
+          <li>
+            <Link href="/components/Lista">Lista</Link>
+          </li>
+        </ul>
+      </div>
+    </>
   );
 }

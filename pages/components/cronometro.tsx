@@ -1,5 +1,11 @@
 import React from "react";
+import Navbar from "./Navbar";
 
-export function Cronometro() {
-  return <div>cronometro</div>;
+export default function Cronometro() {
+  return (
+    <>
+      <Navbar />
+      <div>Cronometro</div>
+    </>
+  );
 }

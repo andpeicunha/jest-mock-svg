@@ -9,6 +9,10 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 
+  --color-cinza-light: #f8f8f8;
+  --color-cinza-middle: #b8b8b8;
+  --color-cinza-dark: #a5a5a5;
+
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
     #16abff33 0deg,
@@ -63,6 +67,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
+  font-family: "Roboto", sans-serif;
 }
 
 a {

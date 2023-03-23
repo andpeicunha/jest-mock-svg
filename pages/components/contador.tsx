@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import styles from "@/styles/Home.module.css";
-import Navbar from "./navbar";
+import Navbar from "./Navbar";
 
 function reducer(state: any, action: any) {
   switch (action.type) {
