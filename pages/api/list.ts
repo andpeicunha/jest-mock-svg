@@ -15,6 +15,11 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
     { id: 3, name: "Produto 3", valor: "3,20" },
     { id: 4, name: "Produto 4", valor: "4,20" },
     { id: 5, name: "Produto 5", valor: "5,20" },
+    { id: 6, name: "Produto 6", valor: "6,20" },
+    { id: 7, name: "Produto 7", valor: "7,20" },
+    { id: 8, name: "Produto 8", valor: "8,20" },
+    { id: 9, name: "Produto 9", valor: "9,20" },
+    { id: 10, name: "Produto 10", valor: "10,20" },
   ];
 
   res.status(200).json(data);

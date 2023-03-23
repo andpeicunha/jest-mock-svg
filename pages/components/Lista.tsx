@@ -32,11 +32,32 @@ function cartReducer(state: any, action: any) {
   }
 }
 
+function getStoredCartItems() {
+  if (typeof window !== "undefined") {
+    const storedCartItems = localStorage.getItem("cartItems");
+    if (storedCartItems !== null) {
+      try {
+        const cartItems = JSON.parse(storedCartItems);
+        return cartItems;
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
+  return [];
+}
+
 export default function Lista() {
   const [dados, setDados] = useState([]);
-  const [state, dispatch] = useReducer(cartReducer, { cartItems: [] });
+  const [state, dispatch] = useReducer(cartReducer, { cartItems: getStoredCartItems() });
 
   const CartLength = state.cartItems.length;
+
+  useEffect(() => {
+    if (state.cartItens !== null) {
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+    }
+  }, [state.cartItems]);
 
   useEffect(() => {
     const fetchData = async () => {
