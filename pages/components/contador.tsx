@@ -19,7 +19,7 @@ function reducer(state: any, action: any) {
   }
 }
 
-export default function contador() {
+export default function Contador() {
   const [state, dispatch] = useReducer(reducer, { count: 0, color: false });
 
   return (

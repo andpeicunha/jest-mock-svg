@@ -57,7 +57,7 @@ export default function Lista() {
     if (state.cartItens !== null) {
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     }
-  }, [state.cartItems]);
+  }, [state]);
 
   useEffect(() => {
     const fetchData = async () => {
